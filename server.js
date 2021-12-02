@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const Tesseract = require('tesseract.js');
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const storage = multer.diskStorage({
     destination:(req,file,cb) =>{
@@ -18,6 +21,7 @@ app.post('/api/upload',upload.single('uploadedImage'),(req,res)=>{
     try{
         Tesseract.recognize(
             'uploads/'+req.file.filename,
+            // 'eng',
             'ara',
             {logger:m=>console.log(m)}
         ).then(({data:{text}})=>{
@@ -29,6 +33,6 @@ app.post('/api/upload',upload.single('uploadedImage'),(req,res)=>{
     }
 })
 
-app.listen(3000,()=> {
-    console.log('server running');  
-})
+const PORT = process.env.PORT || 5000
+app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+
