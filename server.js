@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const Tesseract = require('tesseract.js');
-import dotenv from 'dotenv';
+const dotenv = require('dotenv')
 
 dotenv.config()
 
@@ -34,5 +34,5 @@ app.post('/api/upload',upload.single('uploadedImage'),(req,res)=>{
 })
 
 const PORT = process.env.PORT || 5000
-app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`))
 
