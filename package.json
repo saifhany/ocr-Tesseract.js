@@ -1,17 +1,17 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "type": "module",
   "engines": {
     "node": "15.x",
     "npm": "7.x",
-    "yarn": "1.x"
+    "yarn": "1.x",
+    "type": "module"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "server": "nodemon backend/server"
   },
   "author": "",
   "license": "ISC",
