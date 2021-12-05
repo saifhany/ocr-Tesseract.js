@@ -3,6 +3,11 @@ const app = express();
 const multer = require('multer');
 const Tesseract = require('tesseract.js');
 const dotenv = require('dotenv')
+var cors = require('cors')  //use this
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors()) 
 
 dotenv.config()
 
